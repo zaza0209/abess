@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Adaptive Best Subset Selection in Polynomial Time">
-<meta property="og:description" content="Extremely efficient toolkit for solving the best subset selection problem in linear regression, logistic regression, Poisson regression, Cox proportional hazard model, multiple-response Gaussian, and multinomial regression. It implements and generalizes algorithms designed in &lt;doi:10.1073/pnas.2014241117&gt; that exploits a novel sequencing-and-splicing technique to guarantee exact support recovery and globally optimal solution in polynomial times.  ">
+<meta property="og:description" content="Extremely efficient toolkit for solving the best subset selection problem in linear regression, logistic regression, Poisson regression, Cox proportional hazard model, multiple-response regression, multinomial logistic regression, and principal component analysis. It implements and generalizes algorithms designed in &lt;doi:10.1073/pnas.2014241117&gt; that exploits a novel sequencing-and-splicing technique to guarantee exact support recovery and globally optimal solution in polynomial times.  ">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -54,7 +54,28 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/abess-guide.html">An Introduction to `abess`</a>
+      <a href="articles/v01-abess-guide.html">Quick start for `abess`: Linear regression</a>
+    </li>
+    <li>
+      <a href="articles/v03-classification.html">Classification: Logistic Regression and Multinomial Extension</a>
+    </li>
+    <li>
+      <a href="articles/v04-poissonregression.html">Poisson Regression</a>
+    </li>
+    <li>
+      <a href="articles/v05-coxreg.html">Best Subset Selection for Censored Response</a>
+    </li>
+    <li>
+      <a href="articles/v06-MultiTaskLearning.html">Multi-Response Linear Regression</a>
+    </li>
+    <li>
+      <a href="articles/v07-advancedFeatures.html">Advanced Features</a>
+    </li>
+    <li>
+      <a href="articles/v08-sPCA.html">Principal component analysis</a>
+    </li>
+    <li>
+      <a href="articles/v09-fasterSetting.html">Tips for faster computation</a>
     </li>
   </ul>
 </li>
@@ -127,18 +148,14 @@ Qiang Sun &amp; Heping Zhang (2020) Targeted Inference Involving High-Dimensiona
 </li>
 <li>Report a bug at <br><a href="https://github.com/abess-team/abess/issues">https://​github.com/​abess-team/​abess/​issues</a>
 </li>
+<li>Learn more at <br><a href="https://abess.readthedocs.io">https://​abess.readthedocs.io</a>
+</li>
 </ul>
 </div>
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 3)</li>
-</ul>
-</div>
-<div class="community">
-<h2>Community</h2>
-<ul class="list-unstyled">
-<li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
 <div class="citation">
@@ -154,6 +171,7 @@ Qiang Sun &amp; Heping Zhang (2020) Targeted Inference Involving High-Dimensiona
 <li>Kangkang Jiang <br><small class="roles"> Author </small>  </li>
 <li>Yanhang Zhang <br><small class="roles"> Author </small>  </li>
 <li>Liyuan Hu <br><small class="roles"> Author </small>  </li>
+<li>Junhao Huang <br><small class="roles"> Author </small>  </li>
 <li>Junxian Zhu <br><small class="roles"> Author </small>  </li>
 <li>Canhong Wen <br><small class="roles"> Author </small>  </li>
 <li>Heping Zhang <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-0688-4076" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
@@ -164,8 +182,11 @@ Qiang Sun &amp; Heping Zhang (2020) Targeted Inference Involving High-Dimensiona
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.com/abess-team/abess"><img src="https://travis-ci.com/abess-team/abess.svg?branch=master" alt="Travis build status"></a></li>
+<li><a href="https://travis-ci.com/abess-team/abess"><img src="https://travis-ci.com/abess-team/abess.svg?branch=master" alt="Build Status"></a></li>
 <li><a href="https://codecov.io/gh/abess-team/abess"><img src="https://codecov.io/gh/abess-team/abess/branch/master/graph/badge.svg?token=LK56LHXV00" alt="codecov"></a></li>
+<li><a href="https://cran.r-project.org/package=abess"><img src="https://img.shields.io/cran/v/abess?logo=R" alt="cran"></a></li>
+<li><a href="http://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPL%20v3-blue.svg" alt="License"></a></li>
+<li><a href="https://www.codacy.com/gh/abess-team/abess/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abess-team/abess&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/3f6e60a3a3e44699a033159633981b76" alt="Codacy Badge"></a></li>
 </ul>
 </div>
 </div>
@@ -173,7 +194,7 @@ Qiang Sun &amp; Heping Zhang (2020) Targeted Inference Involving High-Dimensiona
 
 
       <footer><div class="copyright">
-  <p>Developed by Jin Zhu, Kangkang Jiang, Yanhang Zhang, Liyuan Hu, Junxian Zhu, Canhong Wen, Heping Zhang, Xueqin Wang.</p>
+  <p>Developed by Jin Zhu, Kangkang Jiang, Yanhang Zhang, Liyuan Hu, Junhao Huang, Junxian Zhu, Canhong Wen, Heping Zhang, Xueqin Wang.</p>
 </div>
 
 <div class="pkgdown">
