@@ -156,7 +156,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Adaptive best subset selection for principal component analysis</h1>
-    <small class="dont-index">Source: <a href='https://github.com/abess-team/abess/blob/master/R/abesspca.R'><code>R/abesspca.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/abess-team/abess/tree/master/R-package/R/abesspca.R'><code>R/abesspca.R</code></a></small>
     <div class="hidden name"><code>abesspca.Rd</code></div>
     </div>
 
@@ -344,10 +344,10 @@ can be efficiently solved.</p>
 #&gt; abesspca(x = rob_cov, type = "gram")
 #&gt; 
 #&gt;   support.size       ev       pev
-#&gt; 1            1 6291.994 0.9902949
-#&gt; 2            2 6321.558 0.9949481
-#&gt; 3            3 6339.074 0.9977049
-#&gt; 4            4 6353.656 1.0000000</div><div class='input'>
+#&gt; 1            1 6210.395 0.9792409
+#&gt; 2            2 6273.877 0.9892506
+#&gt; 3            3 6330.157 0.9981246
+#&gt; 4            4 6342.051 1.0000000</div><div class='input'>
 <span class='co'>## K-component principal component analysis</span>
 <span class='va'>pca_fit</span> <span class='op'>&lt;-</span> <span class='fu'>abesspca</span><span class='op'>(</span><span class='va'>USArrests</span>, sparse.type <span class='op'>=</span> <span class='st'>"kpc"</span>, 
                     support.size <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
