@@ -131,7 +131,7 @@
 <div id="simulation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation" class="anchor"></a>Simulation</h2>
-<p>To show the computational efficiency of abess, we compare abess R package with popular R libraries: glmnet, ncvreg, picasso for linear, logistic and poisson regressions; Timings of the CPU execution are recorded in seconds and averaged over 100 replications on a sequence of 100 regularization parameters.</p>
+<p>To show the computational efficiency of abess, we compare abess R package with popular R libraries: glmnet, ncvreg for linear, logistic and poisson regressions; All these packages are compared in three aspects including the prediction performance, the variable selection performance and the computation efficiency. The perdiction performance of the linear model is measured by <span class="math inline">\(\|y - \hat{y}\|_2\)</span> on a test set and for logistic regression this is measured by the area under the ROC Curve. For the variable selection performance, we compute the true positive rate (TPR) and the false positive rate (FPR) of the fitted active set. Timings of the CPU execution are recorded in seconds and all the performance are averaged over 100 replications on a sequence of 100 regularization parameters.</p>
 <p>All experiments are evaluated on an Intel(R) Core(TM) i9-9940X CPU @ 3.30GHz 3.31 GHz and under R version 3.6.1.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/source.html">source</a></span><span class="op">(</span><span class="st">"R-package/example/perform.R"</span><span class="op">)</span></code></pre></div>
