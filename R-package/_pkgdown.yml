@@ -1,0 +1,60 @@
+destination: docs
+
+url: https://abess-team.github.io/abess/
+
+repo:
+  url:
+    home: https://github.com/abess-team/abess/
+    source: https://github.com/abess-team/abess/tree/master/R-package/
+    issue: https://github.com/abess-team/abess/issues/
+
+home:
+  links:
+  - text: Learn more
+    href: https://abess.readthedocs.io
+
+template:
+  params:
+    bootswatch: cerulean
+    docsearch:
+      api_key: d32715b0e35635336aba6377dd751e21
+      index_name: abess
+
+reference:
+- title: Overview
+  contents:
+  - abess-package
+
+- title: Generalized linear model
+  contents:
+  - abess
+  - coef.abess
+  - deviance.abess
+  - extract.abess
+  - plot.abess
+  - predict.abess
+  - print.abess
+
+- title: Principal component analysis
+  contents:
+  - abesspca
+  - coef.abesspca
+  - plot.abesspca
+  - print.abesspca
+
+- title: Robust principal component analysis
+  contents:
+  - abessrpca
+  - coef.abessrpca
+  - plot.abessrpca
+  - print.abessrpca
+
+- title: Synthetic datasets
+  contents:
+  - generate.data
+  - generate.matrix
+  - generate.spc.matrix
+
+- title: Real-world dataset
+  contents:
+  - trim32
