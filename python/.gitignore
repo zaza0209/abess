@@ -1,7 +1,0 @@
-build/*
-bess.egg-info/*
-test/*
-dist/*
-abess/__pycache__/*
-.eggs/*
-docs/build/*
