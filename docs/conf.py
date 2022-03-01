@@ -12,10 +12,11 @@
 #
 import sphinx_gallery
 import sphinx_rtd_theme
-import os
+import sphinx_gallery.sorting
+# import os
 # import sys
 import sys
-import abess
+# import abess
 import matplotlib
 # sys.path.insert(0, os.path.join(os.path.abspath('..'), "python"))
 # import SampleModule
@@ -26,11 +27,11 @@ import matplotlib
 # -- Project information -----------------------------------------------------
 
 project = 'ABESS'
-copyright = '2020, <Author>'
-author = '<Author>'
+copyright = '2020, abess-team'
+author = 'abess-team'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.4.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -48,7 +49,9 @@ extensions = [
     "sphinx.ext.ifconfig",
     "sphinx.ext.githubpages",
     'sphinx.ext.intersphinx',
-    'sphinx_gallery.gen_gallery',
+    'sphinx_gallery.gen_gallery'
+    # ,
+    # 'sphinx_toggleprompt'
 ]
 
 matplotlib.use('agg')
@@ -105,7 +108,9 @@ html_context = {
     # Enable the "Edit in GitHub link within the header of each page.
     "display_github": True,
     # Set the following variables to generate the resulting github URL for each page.
-    # Format Template: https://{{ github_host|default("github.com") }}/{{ github_user }}/{{ github_repo }}/blob/{{ github_version }}{{ conf_py_path }}{{ pagename }}{{ suffix }}
+    # Format Template: https://{{ github_host|default("github.com") }}/{{
+    # github_user }}/{{ github_repo }}/blob/{{ github_version }}{{
+    # conf_py_path }}{{ pagename }}{{ suffix }}
     "github_user": "abess-team",
     "github_repo": "abess",
     "github_version": "main/docs/",
@@ -113,9 +118,9 @@ html_context = {
 htmlhelp_basename = "abessdoc"
 
 
-# def setup(app):
-#     # to hide/show the prompt in code examples:
-#     app.add_javascript("js/copybutton.js")
+def setup(app):
+    # to hide/show the prompt in code examples:
+    app.add_js_file("js/copybutton.js")
 
 
 # sphinx-gallery configuration
@@ -126,7 +131,7 @@ sphinx_gallery_conf = {
     # path to where to save gallery generated output
     'gallery_dirs': ['auto_gallery'],
     # specify that examples should be ordered according to filename
-    # 'within_subsection_order': FileNameSortKey #,
+    'within_subsection_order': sphinx_gallery.sorting.FileNameSortKey,
     # directory where function granular galleries are stored
     # 'backreferences_dir': 'gen_modules/backreferences',
     # Modules for which function level galleries are created.  In
@@ -134,15 +139,19 @@ sphinx_gallery_conf = {
     # 'doc_module': ('SampleModule'),
     'reference_url': {
         'abess': None,
-    },
-    'ignore_pattern': r'noinclude\.py'
+    }
+    # ,
+    # 'filename_pattern': '/plot_',
+    # 'ignore_pattern': r'__init__\.py',
+    # 'ignore_pattern': r'noinclude\.py'
+
 }
 
 # configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    "numpy": ("https://docs.scipy.org/doc/numpy", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
     'matplotlib': ('https://matplotlib.org/', None),
-    "sklearn": ("https://scikit-learn.org/dev/objects.inv", None),
-    'pandas': ('http://pandas.pydata.org/pandas-docs/stable/', None)
+    "sklearn": ("https://scikit-learn.org/dev/", None),
+    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None)
 }
